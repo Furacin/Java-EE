@@ -9,9 +9,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Encuesta entre desarrolladores</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Bienvenido a la encuesta de desarrolladores</h1>
+        <p>Indica los lenguajes de programación con los que estás familiarizado</p>
+        <form action="salida.jsp">
+            <table border="0">
+                <tbody>
+                    <tr>
+                        <td>Nombre Completo</td>
+                        <td><input type="text" name="nombreCompleto" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td><input type="checkbox" name="progLeng" value="java" /></td>
+                    </tr>
+                    <tr>
+                        <td>PHP</td>
+                        <td><input type="checkbox" name="progLeng" value="PHP" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ruby</td>
+                        <td><input type="checkbox" name="progLeng" value="Ruby" /></td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td><input type="checkbox" name="progLeng" value="Python" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Enviar" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
     </body>
 </html>
