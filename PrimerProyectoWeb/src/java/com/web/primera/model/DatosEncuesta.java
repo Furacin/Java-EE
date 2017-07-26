@@ -5,15 +5,34 @@
  */
 package com.web.primera.model;
 
-import javax.ejb.Stateless;
-
 /**
  *
  * @author manza
  */
-@Stateless
 public class DatosEncuesta {
+    
+    /*
+    * Con esta clase, le permite al servlet acceder a los datos
+    */
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    private String nombreCompleto;
+    private String[] progLeng;
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public String[] getProgLeng() {
+        return progLeng;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public void setProgLeng(String[] progLeng) {
+        this.progLeng = progLeng;
+    }
+    
+    
 }

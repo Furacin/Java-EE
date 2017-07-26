@@ -13,22 +13,24 @@
     </head>
     <body>
         <h2>Gracias por cubrir nuestra encuesta</h2>
-        <p>
-            <!--
+        <!--
                 Las expresiones JSP siempre van entre los delimitadores
-                que se ven justo después.
+                que se ven justo despues.
             -->
-            <%= request.getParameter("nombreCompleto") %>,
+        <p>
+            <jsp:getProperty name="datosEncuesta" property="nombreCompleto" />
             Nos has indicado que estás familiarizado con los siguientes 
-            lenguajes de programación:
+            lenguajes de programación: 
+            <jsp:useBean id="datosEncuesta" scope="request" class="com.web.primera.model.DatosEncuesta" />
         </p>
         <ul>
            <!--
                 Scriptlest. Pueden contener cualquier código Java y a los 
                 objetos implícitos (los que se reciben de otros jsp).
            --> 
+           
             <%
-                String [] lenguajesSeleccionados = request.getParameterValues("progLeng");
+                String [] lenguajesSeleccionados = datosEncuesta.getProgLeng();
                 if (lenguajesSeleccionados != null) {
                     for (int i=0; i<lenguajesSeleccionados.length; i++) {
             %>        

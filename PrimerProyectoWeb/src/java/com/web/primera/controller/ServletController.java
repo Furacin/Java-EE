@@ -5,6 +5,7 @@
  */
 package com.web.primera.controller;
 
+import com.web.primera.model.DatosEncuesta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,24 +31,21 @@ public class ServletController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    // Este método se ejecuta cada vez que el servlet recibe una consulta httpGet o httpPost,
+    // Este método se ejecuta cada vez que el servlet recibe una consulta httpGet o httpP ost,
     // ese método toma una instancia de HttoServletRequest y HttpServletResponse.
     // Son dos parámetros que son equivalentes a los dos objetos implícitos (request y response de jsp)
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+        DatosEncuesta datosEncuesta = new DatosEncuesta();
+        // Parámetros de la HttpRequest
+        datosEncuesta.setNombreCompleto(request.getParameter("nombreCompleto"));
+        datosEncuesta.setProgLeng(request.getParameterValues("progLeng"));
+        // Almacenamos la instancia datosEncuesta como un atributo request
+        request.setAttribute("datosEncuesta", datosEncuesta);
+        // Envía la información a la página de salida (salida.jsp)
+        request.getRequestDispatcher("salida.jsp").forward(request,response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
