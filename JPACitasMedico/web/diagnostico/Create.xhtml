@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDiagnosticoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDiagnosticoLabel_idDiagnostico}" for="idDiagnostico" />
+                    <h:inputText id="idDiagnostico" value="#{diagnosticoController.selected.idDiagnostico}" title="#{bundle.CreateDiagnosticoTitle_idDiagnostico}" required="true" requiredMessage="#{bundle.CreateDiagnosticoRequiredMessage_idDiagnostico}"/>
+                    <h:outputLabel value="#{bundle.CreateDiagnosticoLabel_valoracionEspecialista}" for="valoracionEspecialista" />
+                    <h:inputText id="valoracionEspecialista" value="#{diagnosticoController.selected.valoracionEspecialista}" title="#{bundle.CreateDiagnosticoTitle_valoracionEspecialista}" />
+                    <h:outputLabel value="#{bundle.CreateDiagnosticoLabel_enfermedad}" for="enfermedad" />
+                    <h:inputText id="enfermedad" value="#{diagnosticoController.selected.enfermedad}" title="#{bundle.CreateDiagnosticoTitle_enfermedad}" required="true" requiredMessage="#{bundle.CreateDiagnosticoRequiredMessage_enfermedad}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{diagnosticoController.create}" value="#{bundle.CreateDiagnosticoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{diagnosticoController.prepareList}" value="#{bundle.CreateDiagnosticoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDiagnosticoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
